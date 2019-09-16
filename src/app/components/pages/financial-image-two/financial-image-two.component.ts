@@ -10,5 +10,7 @@ export class FinancialImageTwoComponent implements OnInit {
   @Input() insightStatus;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.imageTwo)
+  }
 }

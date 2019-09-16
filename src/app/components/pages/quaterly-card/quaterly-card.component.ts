@@ -9,5 +9,7 @@ export class QuaterlyCardComponent implements OnInit {
   @Input() quaterlyData;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.quaterlyData);
+  }
 }

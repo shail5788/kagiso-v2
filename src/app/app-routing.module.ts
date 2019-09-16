@@ -15,9 +15,7 @@ const routes: Routes = [
     pathMatch: "full",
     component: ContactUsComponent
   },
-    {path:"glossary",
-    pathMatch:"full",
-    component:PagesComponent},
+  { path: "glossary", pathMatch: "full", component: PagesComponent },
 
   {
     path: "individual-investor/invest-with-us",
@@ -44,8 +42,8 @@ const routes: Routes = [
     pathMatch: "full",
     component: PagesComponent
   },
-    {
-        path: "institutional-investor/investment-approach",
+  {
+    path: "institutional-investor/investment-approach",
     component: PagesComponent
   },
   {
@@ -95,7 +93,7 @@ const routes: Routes = [
     path: "sharia-investor/our-funds/islamic-global-equity-feeder-fund",
     component: PagesComponent
   },
-    {
+  {
     path: "individual-investor/our-funds/global-equity-feeder-fund",
     component: PagesComponent
   },
@@ -112,7 +110,7 @@ const routes: Routes = [
     path: "institutional-investor/our-funds/stable-fund",
     component: PagesComponent
   },
-    {
+  {
     path: "institutional-investor/our-funds/managed-equity-fund",
     component: PagesComponent
   },
@@ -148,18 +146,17 @@ const routes: Routes = [
     path: "institutional-investor/our-funds/domestic-balanced-fund",
     component: PagesComponent
   },
-    {
+  {
     path: "institutional-investor/our-funds/complete-fund-range",
     component: PagesComponent
   },
-
 
   {
     path: "institutional-investor/our-funds/global-balanced-fund",
     component: PagesComponent
   },
-    
-    {
+
+  {
     path: "about-us/our-history",
     pathMatch: "full",
     component: PagesComponent
@@ -208,6 +205,12 @@ const routes: Routes = [
   // { path: ":parent/:slug", pathMatch: "full", component: PagesComponent },
   {
     path: ":ID",
+    pathMatch: "full",
+    component: PagesComponent
+  },
+
+  {
+    path: "article/:slug",
     pathMatch: "full",
     component: PagesComponent
   }

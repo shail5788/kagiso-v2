@@ -102,12 +102,17 @@ export class PagesComponent implements OnInit {
             //   console.log(this.taxFreeInvestment);
             // });
           }
+          if (currentUrl.parent == "article") {
+            // this.page.articleStatus = true;
+            // console.log(this.page);
+            console.log("this is the article page");
+          }
           if (slug == "new-to-investing") {
             this.page.newToInvestingStatus = true;
             this.activeClickedTab = "unitTrust";
             this.getHowToInvestSlider = this.page.acf.what_is_a_unit_trust;
           }
-            if (slug == "how-to-invest") {
+          if (slug == "how-to-invest") {
             this.page.howToInvestStatus = true;
             this.activeClickedTab = "doInvest";
             this.getHowToInvestSlider = this.page.acf.how_do_i_invest;
