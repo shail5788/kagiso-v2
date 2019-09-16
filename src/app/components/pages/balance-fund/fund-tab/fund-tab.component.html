@@ -1,0 +1,108 @@
+<ul class="fund-tabs" style="float: left; margin-bottom: 0px">
+  <li
+    data-tab="overview"
+    (click)="getTabData('overview', 'This is overview')"
+    [ngClass]="{ current: getSelected == 'overview' }"
+  >
+    Overview
+  </li>
+  <!--<li
+    data-tab="details"
+    (click)="getTabData('details', 'This is Detail')"
+    [ngClass]="{ current: getSelected == 'details' }"
+  >
+    Details
+  </li>-->
+  <li
+    class=""
+    [ngClass]="{ current: getSelected == 'prices' }"
+    data-tab="price"
+    (click)="getTabData('prices', 'This is price')"
+  >
+    Price
+  </li>
+  <li
+    class=""
+    data-tab="fees"
+    [ngClass]="{ current: getSelected == 'fees' }"
+    (click)="getTabData('fees', 'This is fees')"
+  >
+    Fees
+  </li>
+</ul>
+
+<div *ngIf="getTabDateSet != null" style="float: left">
+  <div
+    class="get-tab-data fund-tab-content current"
+    [innerHTML]="getTabDateSet"
+  ></div>
+</div>
+<br><br>
+<div class="latest" *ngIf="getPriceData && getPriceData.isPrice">
+  <ul>
+    <li style="margin-left: -20px">
+      <div class="month-start">
+        Latest Price <span class="amt">892.90</span>
+      </div>
+    </li>
+    <li class="right-li">
+      <div class="month-latest-end1">
+        Month End Price <span class="amt">892.90</span>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="price-section" *ngIf="getPriceData && getPriceData.isPrice">
+  <table id="scrollable" class="table blanced-fund-table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let header of getHeader">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let getPrice of getPriceData.data">
+        <td>{{ getPrice.Date }}</td>
+        <td>{{ getPrice["price\r"] | number: "1.2-2" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class=" margin-30px-top" *ngIf="getPriceData && getPriceData.isPrice">
+  <a href="" class="btn-download"><span>DOWNLOAD</span></a>
+</div>
+<!-- <div id="overview" class="fund-tab-content current">
+  <p>
+    This fund aims to provide investors with high, long-term capital growth
+    within the constraints of the statutory investment restrictions for
+    retirement funds. The fund seeks to provide a moderated exposure to
+    volatility in the short term.
+  </p>
+  <p class="red"><strong>Why Should Invest?</strong></p>
+  <p>
+    The fund is suitable for investors who are building up their long-term
+    retirement savings and require capital growth. Investors would also be
+    seeking to preserve the purchasing power of their capital over the long
+    term, with a time horizon of three years or longer.
+  </p>
+</div> -->
+<!-- <div id="details" class="fund-tab-content">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+</div>
+<div id="price" class="fund-tab-content">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+</div>
+<div id="fess" class="fund-tab-content">
+  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+  commodo consequat.
+</div> -->
