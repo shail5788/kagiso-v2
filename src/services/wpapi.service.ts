@@ -13,7 +13,7 @@ export class WPAPIService {
     "http://dev.omangom.com/kagiso/wordpress/?custom_action=get_chart_data&csv_url=";
   emailSendUrl =
     "http://dev.omangom.com/kagiso/wordpress/?custom_action=save_contact";
-
+  postByslug = "http://dev.omangom.com/kagiso/wordpress/wp-json/wp/v2/posts";
   constructor(private http: HttpClient) {}
   getCategory(query) {
     return this.http.get(`${this.endpoints}/categories/${query}`);
@@ -29,6 +29,9 @@ export class WPAPIService {
   }
   getPost(id) {
     return this.http.get(`${this.pagesEndPoint}/posts/${id}`);
+  }
+  getPostBySlug(slug) {
+    return this.http.get(`${this.postByslug}?slug=${slug}`);
   }
   pages(query) {
     return this.http.get(`${this.endpoints}/pages/${query}`);

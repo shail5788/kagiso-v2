@@ -105,7 +105,10 @@ export class PagesComponent implements OnInit {
           if (currentUrl.parent == "article") {
             // this.page.articleStatus = true;
             // console.log(this.page);
-            console.log("this is the article page");
+            this.wpservice.getPostBySlug(slug).subscribe(post => {
+              this.page = post;
+              console.log(this.page);
+            });
           }
           if (slug == "new-to-investing") {
             this.page.newToInvestingStatus = true;
