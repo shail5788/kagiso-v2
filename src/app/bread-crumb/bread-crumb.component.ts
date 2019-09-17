@@ -18,23 +18,31 @@ export class BreadCrumbComponent implements OnInit {
       ? (this.CurrentUrl.child = menu[0] + " " + menu[1] + " " + menu[2])
       : (this.CurrentUrl.child = menu[0] + " " + menu[1]);
 
-    this.CurrentUrl.parent = parent[0] + " " + parent[1];
+    this.CurrentUrl.parent =
+      parent.length > 1 ? parent[0] + " " + parent[1] : parent[0];
 
     if (
       this.CurrentUrl.parent !== " undefined" &&
       this.CurrentUrl.parent !== ""
     ) {
       if (menu.length >= 3) {
+        var child = "";
+        for (let i = 0; i < menu.length; i++) {
+          child += menu[i] + " ";
+        }
+
         this.breadCrumb =
-          parent[0] +
-          " " +
-          parent[1] +
-          " > " +
-          menu[0] +
-          " " +
-          menu[1] +
-          " " +
-          menu[2];
+          // parent[0] +
+          // " " +
+          // parent[1] +
+
+          this.CurrentUrl.parent + " > " + child;
+
+        // menu[0] +
+        // " " +
+        // menu[1] +
+        // " " +
+        // menu[2];
       } else {
         this.breadCrumb =
           parent[0] + " " + parent[1] + " > " + menu[0] + " " + menu[1];

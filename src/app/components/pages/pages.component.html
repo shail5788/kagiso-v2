@@ -1187,3 +1187,18 @@
 <!--End Institution complete fund range  -->
 
 <!--end Instittutional manage equity fund view-->
+<!-- Article-detail-page -->
+<div class="article-components margin-20px-bottom" *ngIf="page && page.articleStatus" >
+    <div class="row">
+        <div class="col-md-12 bread-crumb-about-us-home">
+            <app-bread-crumb [CurrentUrl]="getCurrentTab"></app-bread-crumb>
+        </div> 
+    </div>
+    <div class="container">
+
+        <div class="article" *ngIf="page && page.articleStatus" style="margin-top:30px;">
+          <app-article [getArticleData]="page[0]"></app-article>
+       </div>
+      </div>
+</div>
+

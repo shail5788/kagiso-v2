@@ -62,6 +62,7 @@ import { AboutUsCommonComponent } from './about-us-common/about-us-common.compon
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 import { MeetOurLeaderComponent } from './meet-our-leader/meet-our-leader.component';
 import { HowToInvestComponent } from './how-to-invest/how-to-invest.component';
+import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { HowToInvestComponent } from './how-to-invest/how-to-invest.component';
     AboutUsCommonComponent,
     BreadCrumbComponent,
     MeetOurLeaderComponent,
-    HowToInvestComponent
+    HowToInvestComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

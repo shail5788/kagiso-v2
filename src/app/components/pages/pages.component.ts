@@ -107,7 +107,8 @@ export class PagesComponent implements OnInit {
             // console.log(this.page);
             this.wpservice.getPostBySlug(slug).subscribe(post => {
               this.page = post;
-              console.log(this.page);
+              this.page.articleStatus = true;
+              // console.log(this.page);
             });
           }
           if (slug == "new-to-investing") {
@@ -150,7 +151,7 @@ export class PagesComponent implements OnInit {
             //console.log(this.page);
           }
 
-          console.log(currentUrl);
+          // console.log(currentUrl);
           this.getCurrentTab = currentUrl;
           if (this.page) {
             /*** Old About us page    */
