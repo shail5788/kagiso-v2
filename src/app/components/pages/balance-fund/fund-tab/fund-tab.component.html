@@ -37,17 +37,17 @@
     [innerHTML]="getTabDateSet"
   ></div>
 </div>
-<br><br>
+<br /><br />
 <div class="latest" *ngIf="getPriceData && getPriceData.isPrice">
   <ul>
     <li style="margin-left: -20px">
       <div class="month-start">
-        Latest Price <span class="amt">892.90</span>
+        Latest Price <span class="amt">{{ latestPrice }}</span>
       </div>
     </li>
     <li class="right-li">
       <div class="month-latest-end1">
-        Month End Price <span class="amt">892.90</span>
+        Month End Price <span class="amt">{{ endPrice }}</span>
       </div>
     </li>
   </ul>
@@ -61,14 +61,17 @@
     </thead>
     <tbody>
       <tr *ngFor="let getPrice of getPriceData.data">
-        <td>{{ getPrice.Date }}</td>
-        <td>{{ getPrice["price\r"] | number: "1.2-2" }}</td>
+        <td>{{ getPrice.DATE }}</td>
+        <!-- <td>{{ getPrice["price\r"] | number: "1.2-2" }}</td> -->
+        <td>{{ getPrice["Price"] | number: "1.2-2" }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 <div class=" margin-30px-top" *ngIf="getPriceData && getPriceData.isPrice">
-  <a href="" class="btn-download"><span>DOWNLOAD</span></a>
+  <a [href]="getApiData.acf.prices" class="btn-download"
+    ><span>DOWNLOAD</span></a
+  >
 </div>
 <!-- <div id="overview" class="fund-tab-content current">
   <p>
