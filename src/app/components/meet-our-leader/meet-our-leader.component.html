@@ -1,4 +1,5 @@
-<div class="pageContainer">
+<div class="container">
+    <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12 margin-20px-bottom">
     <div class="bg-white text-center">
       <h2>{{ meetOurLeaders.title.rendered }}</h2>
@@ -6,8 +7,9 @@
   </div>
   <div class="pageLeader margin-15px-lr">
     <div
-      class="col-md-12 bg-white margin-20px-bottom padding-25px-all"
+      class="col-md-12 bg-white padding-25px-all"
       *ngFor="let leader of meetOurLeaders.acf.meet_our_leaders"
+         style="border-bottom: 30px #E7E7E7 solid"
     >
       <div class="col-md-6">
         <p class="leader-image" [innerHTML]="leader.video_url"></p>
@@ -15,8 +17,11 @@
       <div class="col-md-6" style="margin-top:23px;">
         <p class="text-deep-pink" [innerHTML]="leader.name"></p>
         <p [innerHTML]="leader.position"></p>
-        <p>{{ leader.details }}</p>
+        <p [innerHTML]="leader.details"></p>
       </div>
+        
+    </div>
+      <div class="margin-30px-bottom"></div>
     </div>
   </div>
 </div>
