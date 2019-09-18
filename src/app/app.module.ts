@@ -1,6 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { ToastrModule } from "ng6-toastr-notifications";
+import { FormsModule } from "@angular/forms";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { MalihuScrollbarModule } from "ngx-malihu-scrollbar";
 import { Ng2CarouselamosModule } from "ng2-carouselamos";
@@ -123,10 +126,13 @@ import { ArticleComponent } from "./components/article/article.component";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     SwiperModule,
     ChartsModule,
+    ToastrModule.forRoot(),
     MalihuScrollbarModule.forRoot(),
     NgbModule.forRoot(),
     Ng2CarouselamosModule,

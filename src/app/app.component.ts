@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import * as AOS from "aos";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { WPAPIService } from "../services/wpapi.service";
+import { ToastrManager } from "ng6-toastr-notifications";
 
 @Component({
   selector: "app-root",
@@ -13,7 +15,14 @@ export class AppComponent {
   getMessageStatus = true;
   public location = "/";
   title = "kagiso";
-  constructor(private router: Router, private modalService: NgbModal) {
+  model: any = {};
+  response;
+  constructor(
+    private router: Router,
+    private modalService: NgbModal,
+    private wpservice: WPAPIService,
+    public toastr: ToastrManager
+  ) {
     this.location = router.url;
     //console.log(router.url);
   }
@@ -57,5 +66,16 @@ export class AppComponent {
       console.log(this.getMessageStatus);
       return `with: ${reason}`;
     }
+  }
+  submitForm(f) {
+    this.wpservice.saveContact(this.model).subscribe(data => {
+      this.response = data;
+
+      if (this.response.success) {
+        console.log(this.response);
+        this.toastr.successToastr("Contact save successfully !", "success!");
+        f.resetForm();
+      }
+    });
   }
 }
