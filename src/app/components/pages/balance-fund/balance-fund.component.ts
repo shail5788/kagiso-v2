@@ -15,9 +15,11 @@ export class BalanceFundComponent implements OnInit {
   currentRoute;
   selectedRoute;
   csvData;
+  year;
   constructor(private wpservice: WPAPIService, private router: Router) {}
 
   ngOnInit() {
+    this.year = "all";
     /*this.wpservice.readCSVDataFromServer().subscribe(data => {
       console.log("readCSVDataFromServer========", data);
     });*/
@@ -36,7 +38,11 @@ export class BalanceFundComponent implements OnInit {
     //   //this.createDataConditionalDataset(years);
     //   this.getGraphData = this.makeDataSets(this.csvData, years);
     // }
-
+    this.year = years;
+    if (this.year == null) {
+      this.year = "all";
+    }
+    console.log(this.year);
     this.getGraphData = this.makeDataSets(this.csvData, years);
   }
   createDataConditionalDataset(length) {

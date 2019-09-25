@@ -1,7 +1,5 @@
 <!-- start blanced fund -->
-<section
-  class="wow fadeIn bg-gray-light  xs-margin-80px-top xs-margin-15px-lr"
->
+<section class="wow fadeIn bg-gray-light  xs-margin-80px-top xs-margin-15px-lr">
   <div class="container">
     <div class="row">
       <!-- start Unconventional thinking box item -->
@@ -32,30 +30,30 @@
           <!-- btn-list -->
           <div class="inner-match-height bg-white">
             <div class="row">
-              <div class="col-md-5 padding-45px-all graph-box1" >
+              <div class="col-md-5 padding-45px-all graph-box1">
                 <!-- Tab Menu -->
                 <app-fund-tab [getApiData]="getBalancedData"></app-fund-tab>
                 <!-- Tab Menu Closed -->
               </div>
-               <!-- <div class="vertical-row"></div>-->
-              <div class="col-md-7  graph-box padding-45px-all" >
+              <!-- <div class="vertical-row"></div>-->
+              <div class="col-md-7  graph-box padding-45px-all">
                 <ul class="year-list" style="float: left">
-                  <li>
+                  <li [ngClass]="{ current: year == '5' }">
                     <a href="javascript:void(0)" (click)="getConditionalCSV(5)"
                       >5 Years</a
                     >
                   </li>
-                  <li>
+                  <li [ngClass]="{ current: year == '7' }">
                     <a href="javascript:void(0)" (click)="getConditionalCSV(7)"
                       >7 Years</a
                     >
                   </li>
-                  <li>
+                  <li [ngClass]="{ current: year == '10' }">
                     <a href="javascript:void(0)" (click)="getConditionalCSV(10)"
                       >10 Years</a
                     >
                   </li>
-                  <li class="current">
+                  <li [ngClass]="{ current: year == 'all' }">
                     <a href="javascript:void(0)" (click)="getConditionalCSV()"
                       >Since Inception</a
                     >
@@ -90,18 +88,18 @@
                     >
                   </li>
                 </ul>
-                <p style="font-size: 12px; width: 90%">{{ getBalancedData.acf.notes }}</p>
+                <p style="font-size: 12px; width: 90%">
+                  {{ getBalancedData.acf.notes }}
+                </p>
                 <div class="select-fund" style="width: 92.5%">
                   <div class="row">
                     <div
-                     class="col-xs-12 col-md-6 xs-padding-20px-right"
+                      class="col-xs-12 col-md-6 xs-padding-20px-right"
                       style="padding-right:0"
                     >
                       <span><b>Select Another funds</b></span>
                     </div>
-                    <div
-                      class="col-xs-12 col-md-6 select-funds"
-                    >
+                    <div class="col-xs-12 col-md-6 select-funds">
                       <select (change)="getFundOnChange($event)">
                         <option value="">Please select Fund</option>
                         <option
@@ -110,9 +108,10 @@
                           [attr.selected]="
                             currentRoute == fund.fund_url ? true : null
                           "
-                          >{{ fund.fund_title }}</option>
-                          
-<!--                         <option>EQUITY ALPHA FUND</option>
+                          >{{ fund.fund_title }}</option
+                        >
+
+                        <!--                         <option>EQUITY ALPHA FUND</option>
                         <option>ISLAMIC EQUITY FUND</option>
                         <option>BALANCED FUND</option>
                         <option>ISLAMIC BALANCED FUND</option>
@@ -141,19 +140,25 @@
               <li class="col-md-3">
                 <a href="#" class="btn-top-10-holdings">
                   <div class="link-img-box"></div>
-                  <div class="title" style="width: 150px; font-size: 14px">TOP 10 HOLDINGS</div>
+                  <div class="title" style="width: 150px; font-size: 14px">
+                    TOP 10 HOLDINGS
+                  </div>
                 </a>
               </li>
               <li class="col-md-3">
                 <a href="#" class="btn-form">
                   <div class="link-img-box"></div>
-                  <div class="title" style="width: 150px;font-size: 14px">FORMS</div>
+                  <div class="title" style="width: 150px;font-size: 14px">
+                    FORMS
+                  </div>
                 </a>
               </li>
               <li class="col-md-3">
                 <a href="#" class="btn-platforms">
                   <div class="link-img-box"></div>
-                  <div class="title" style="width: 150px; font-size: 14px">PLATFORMS</div>
+                  <div class="title" style="width: 150px; font-size: 14px">
+                    PLATFORMS
+                  </div>
                 </a>
               </li>
               <div class="clearfix"></div>
@@ -192,21 +197,21 @@
               _ngcontent-c15=""
               class="btn-meet-leaders meet-leader margin-15px-right"
               routerLink="/about-us"
-              style="vertical-align: middle" 
+              style="vertical-align: middle"
               ><span>INVESTMENT APPROACH</span></a
             >
             <a
               _ngcontent-c15=""
               class="btn-meet-fund-manager margin-15px-right"
               routerLink="/meet-the-fund-manager"
-              style="vertical-align: middle"  
+              style="vertical-align: middle"
               ><span>MEET THE FUND MANAGER</span></a
             >
             <a
               _ngcontent-c15=""
               class="btn-meet-faq"
               routerLink="/faq"
-              style="vertical-align: middle" 
+              style="vertical-align: middle"
               ><span>FAQ's</span></a
             >
           </div>
