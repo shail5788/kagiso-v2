@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router ,NavigationEnd } from "@angular/router";
 import * as AOS from "aos";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { WPAPIService } from "../services/wpapi.service";
@@ -32,6 +32,14 @@ export class AppComponent {
       duration: 600,
       easing: "ease-in-sine",
       delay: 100
+    });
+
+    this.router.events.subscribe((evt) => {
+      console.log("test");
+      if(!(evt instanceof NavigationEnd)){
+        return;
+      }
+      window.scrollTo(0, 0);
     });
   }
 
