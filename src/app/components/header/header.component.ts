@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
       activeClass: ""
     },
 
-      {
+    {
       name: "Institutional Investor",
       slug: "institutional-investor",
       defulturl: "institutional-investor/investment-approach",
@@ -154,7 +154,7 @@ export class HeaderComponent implements OnInit {
       name: "Institutional Investor",
       slug: "institutional-investor",
       childrens: [
- {
+        {
           name: "INVESTMENT APPROACH",
           slug: "investment-approach",
           parent: "individual-investor",
@@ -217,8 +217,6 @@ export class HeaderComponent implements OnInit {
      * **********************************************************/
 
     this.route.events.subscribe(val => {
-      //console.log(this.route.url);
-
       if (this.route.url.includes("institutional-investor")) {
         this.childrenMenu[0]["name"] = "INVESTMENT APPROACH";
         this.childrenMenu[0]["slug"] = "investment-approach";
@@ -231,10 +229,15 @@ export class HeaderComponent implements OnInit {
         this.childrenMenu[0]["display"] = true;
       }
       if (val instanceof RoutesRecognized) {
+        console.log(this.route.url);
+        var parntURL = val.url.split("/");
+        console.log(parntURL[1]);
         var strIdurl = val.state.root.firstChild.routeConfig.path;
         var strIdArr = strIdurl.split("/");
         var strId = val.state.root.firstChild.params;
+
         this.childrenMenu.forEach(child => {
+          // console.log(child);
           if (typeof strId.ID != "undefined") {
             child.parent = "individual-investor";
           } else {
@@ -244,6 +247,9 @@ export class HeaderComponent implements OnInit {
             } else {
               child.parent = "individual-investor";
             }
+          }
+          if (parntURL[1] == "article") {
+            child.parent = "individual-investor";
           }
         });
 
@@ -308,7 +314,7 @@ export class HeaderComponent implements OnInit {
       this.menuItems.primary.items.forEach(item => {
         var urlArr = item.url.split("/");
         item.slug = urlArr[5];
-        //console.log(item);
+        // console.log(item);
       });
     });
 
